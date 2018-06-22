@@ -52,26 +52,47 @@ $(document).on("click", ".work-button", function(e) {
          //stores the data from the AJAX call into the results variable
          var results = response.data
          //creating a new row
-         var output = $("<div class='row'>")
+         var output = $("<div></div>")
+         output.attr("class", "row");
+         
 
         //for loop to grab the .gifs' and populate them in the HTML page
          for (i = 0; i < results.length; i++) {
+
+            if (i = 5) {
+            newRow = $("<div></div>")
+            newRow.attr("class", "row")
+            }
+            if (i > 5) {
+            newRow.append("<div class='col-2 col-sm-2 col-md-2 col-lg-2 dynamic-gif'></div>");
+            newRow.append("<p>testing</p>");
+            newRow.insertAfter(output);
+            }
+            else {
+            output.append("<div class='col-2 col-sm-2 col-md-2 col-lg-2 dynamic-gif'></div>");
+            output.append("<p>testing</p>");
+            $("#entire-container").append(output);
+            }
              
 
-            if((i%5)==0)
+           /* if((i%5)==0)
             {
                 //when the sixth .GIF is reached, a new row is created
                 output.append("</div><div class='row'>" + "<div class='col-2 col-sm-2 col-md-2 col-lg-2 dynamic-gif'></div>");
                 $(".dynamic-gif").append("<p>testing</p>");
-                $("#entire-container").append(output);
             }
             else
             {
                 //.GIF's are all given separate columns
                 output.append("<div class='col-2 col-sm-2 col-md-2 col-lg-2 dynamic-gif'></div>");
                 $(".dynamic-gif").append("<p>testing</p>");
-                $("#entire-container").append(output);
             }
+            if((i%5)!=0)
+            {
+                output.append("</div><div class='row'>");
+            }
+
+            $("#entire-container").append(output);*/
 
             //HTML output
 
