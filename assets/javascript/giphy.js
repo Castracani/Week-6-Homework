@@ -33,6 +33,9 @@ $(document).on("click", ".work-button", function(e) {
     //empties the text input field
     $("input[name=input]").empty();
 
+    //empties the #gifs-here div so we don't constantly increment the total amount of .gifs on the Web page
+    $("#gifs-here").empty();
+
     //grabs and stores the value of whichever button is clicked
     var grabbedValue = $(this).attr("data-subject");
 
@@ -52,27 +55,26 @@ $(document).on("click", ".work-button", function(e) {
          //stores the data from the AJAX call into the results variable
          var results = response.data
          //creating a new row
-         var output = $("<div></div>")
-         output.attr("class", "row");
+         var output = $("<div>");
+         output.attr("class", "row ");
          
 
         //for loop to grab the .gifs' and populate them in the HTML page
          for (i = 0; i < results.length; i++) {
 
-            if (i = 5) {
-            newRow = $("<div></div>")
-            newRow.attr("class", "row")
-            }
-            if (i > 5) {
-            newRow.append("<div class='col-2 col-sm-2 col-md-2 col-lg-2 dynamic-gif'></div>");
-            newRow.append("<p>testing</p>");
-            newRow.insertAfter(output);
-            }
-            else {
-            output.append("<div class='col-2 col-sm-2 col-md-2 col-lg-2 dynamic-gif'></div>");
-            output.append("<p>testing</p>");
-            $("#entire-container").append(output);
-            }
+            var columns = $("<div class='col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-center dynamic-gif'>");
+            output.append(columns);
+            console.log(columns);
+            var rating = $("<p>Rating: " + results[i].rating + "</p>");
+            columns.append(rating);
+            var subjectGIF = $("<img></img>");
+            subjectGIF.attr("src", results[i].images.fixed_height_still.url);
+            subjectGIF.attr("data-still", results[i].images.fixed_height_still.url);
+            subjectGIF.attr("data-animate", results[i].images.fixed_height.url);
+            subjectGIF.attr("data-state", "still");
+            subjectGIF.attr("class", "gif");
+            columns.append(subjectGIF);
+            $("#gifs-here").append(output);
              
 
            /* if((i%5)==0)
