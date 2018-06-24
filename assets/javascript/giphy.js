@@ -2,16 +2,6 @@
 var subjectsArray = ["Art", "History", "Poetry", "Math", "Physics", "Geometry", "Biology", "Philosophy"];
 var APIkey = "69ycAJq916QcNVDqkghlLHb2IrLfz4g5";
 
-/*$.ajax({
-    url: queryURL,
-    method: "GET",
-})
-
-.then(function(response) {
-    console.log(queryURL);
-    console.log(response);
-
-});*/
 
 $(window).ready(function() {
 $("#entire-container").fadeIn(4000);
@@ -41,12 +31,6 @@ $("#submit").on("submit", function(e){
  startUp();
 });
 
-//valuedUserInput.addEventListener("keyup", function(f) {
-//    f.preventDefault();
-//    if (f.keyCode === 13) {
-//        $("#submit-btn").click();
-//    }
-//});
 
 //function to take the user input and capitalize the first letter of every word
 function firstCap(str)
