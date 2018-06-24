@@ -3,41 +3,54 @@
  }
 
  html {
-     height: 100%;
- }
-
- body {
-     width: 100%;
-     height: 100%;
-     margin-left: auto;
-     margin-right: auto;
-     z-index: -2;
-     background: #000;
- }
-
- /*#entire-container {
-    position:absolute;
-    z-index: -1;
-    display: none;
-    top:0;
-    left:0;
+    padding: 0;
+    margin: 0;
     width: 100%;
-    height:300%;
-    /**scalable background to fill available viewport*
-    background: url('../images/gardens.jpg') center center fixed;
+    height: 100%;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  }
+
+  p {
+      color: #4aaaa3
+  }
+
+  #entire-container {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background: url('../images/gardens.jpg') no-repeat center center fixed;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
- }*/
 
- #gifs-here {
-     z-index: -1;
- }
+    -webkit-animation: myfirst 5s ; /* Chrome, Safari, Opera */
+    animation: myfirst 5s ;
+  }
 
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes myfirst {
+    from {opacity: 0.0;}
+    to {opacity: 1;}
+  }
 
+  /* Standard syntax */
+  @keyframes myfirst {
+    from {opacity: 0.0;}
+    to {opacity: 1;}
+  }
+
+  #gifs-here {
+      height: 100%;
+  }
 
  #buttons-column {
      margin-bottom: 15px;

@@ -28,7 +28,8 @@ function startUp() {
 };
 
 //function for taking user-input and creating it into a button
-$("#submit-btn").on("click", function(){
+$("#submit").on("submit", function(e){
+    e.preventDefault();
  var valuedUserInput = $("input[name='input']").val().trim();
  console.log(valuedUserInput);
  $("#submit-field").val('');
