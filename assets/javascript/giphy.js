@@ -56,7 +56,7 @@ $(document).on("click", ".work-button", function (e) {
     var grabbedValue = $(this).attr("data-subject");
 
     //queryURL utilizing the taken value previously acquired
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + grabbedValue + "&rating=pg&limit=10&api_key=" + APIkey;
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + grabbedValue + "&rating=pg&limit=10&api_key=" + APIkey;
 
     //initiating the AJAX call
     $.ajax({
